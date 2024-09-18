@@ -1,0 +1,46 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		double salario, imposto;
+		Console.Write("Calculadora de impostos de renda\n");
+		Console.WriteLine("Insire o salário a ser calculado: ");
+		String texto = Console.ReadLine();
+		if(Double.TryParse(texto, out salario))
+		{
+		
+			if(salario <=3000)
+			{
+				imposto = salario/10;
+				Console.WriteLine($"O Imposto será de 10%, { Math.Round (imposto, 2) } reais");
+			}
+			else if(salario <=6000)
+			{
+				imposto = salario *0.15;
+				Console.WriteLine($"O impósto será de 15%, {Math.Round (imposto, 2)} reais");
+			}	
+			else if(salario >6000)
+			{
+				imposto = salario/5;
+					Console.Write($"O imposto será de 20%, {Math.Round (imposto, 2)} reais" );
+			}
+			
+		}
+		else
+		{
+			Console.Write("O texto inserido não é um valor valído ");
+		}					  
+			
+		
+	}
+}
+		
+		
+			
+			
+	
+	
+			
+	

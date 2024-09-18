@@ -1,0 +1,45 @@
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Calculadora");
+		Console.Write("Digite o primeiro número: ");
+		double num1 = Convert.ToDouble(Console.ReadLine());
+		Console.Write("Digite o segundo número: ");
+		double num2 = Convert.ToDouble(Console.ReadLine());
+		Console.WriteLine("Escolha uma operação (+, -, *, /): ");
+		char operacao = Convert.ToChar(Console.ReadLine());
+		double resultado = 0;
+		bool operacaoValida = true;
+		switch (operacao)
+		{
+			case '+':
+				resultado = num1 + num2;
+				break;
+			case '-':
+				resultado = num1 - num2;
+				break;
+			case '*':
+				resultado = num1 * num2;
+				break;
+			case '/':
+				if (num2 != 0)
+					resultado = num1 / num2;
+				else
+					Console.WriteLine("Erro: Divisão por zero não é permitida.");
+				operacaoValida = false;
+				break;
+			default:
+				operacaoValida = false;
+				Console.WriteLine("Operação inválida.");
+				break;
+		}
+
+		if (operacao == '+' || operacao == '-' || operacao == '*' || (operacao == '/' && num2 != 0))
+		{
+			Console.WriteLine($"Resultado: {num1} {operacao} {num2} = {resultado}");
+		}
+	}
+}

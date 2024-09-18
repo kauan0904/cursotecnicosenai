@@ -1,0 +1,23 @@
+using System;
+
+public class Program
+{
+	public static void Main()
+	{
+		int contador, calculo, valor;
+		Console.WriteLine("Digite o valor desejado: ");
+		string texto = Console.ReadLine();
+		if (int.TryParse(texto, out valor))
+		{
+			for (contador = 1; contador <= 10; ++contador)
+			{
+				calculo = valor * contador;
+				Console.WriteLine($"{valor} X  {contador}  =  {calculo}");
+			}
+		}
+		else
+		{
+			Console.WriteLine("O valor desejado não é valido");
+		}
+	}
+}

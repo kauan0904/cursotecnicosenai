@@ -1,0 +1,41 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Random random = new Random();
+        int quantidadeJogos;
+        int quantidadedezenas;
+
+        do
+        {
+            Console.WriteLine("Digite a quantidade de jogos: ");
+        } while (!int.TryParse(Console.ReadLine(), out quantidadeJogos) || quantidadeJogos <= 0);
+
+        do
+        {
+            Console.WriteLine("Qual a quantidade de dezenas: ");
+            if (!int.TryParse(Console.ReadLine(), out quantidadedezenas) || quantidadedezenas < 6 || quantidadedezenas > 15)
+            {
+                Console.WriteLine("ERRO: Digite um valor valido para a quantidade de dezenas (deve ser entre 6 e 15).");
+            }
+        } while (quantidadedezenas < 6 || quantidadedezenas > 15);
+
+     
+        for (int j = 1; j <= quantidadeJogos; j++)
+        {
+            Console.Write($"Jogo {j}: ");
+            for (int i = 1; i <= quantidadedezenas; i++)
+            {
+                int dezena = random.Next(1, 61);
+                Console.Write($"{dezena:D2}");
+                if (i < quantidadedezenas)
+                {
+                    Console.Write("-");
+                }
+            }
+            Console.WriteLine();
+        }
+    }
+}
